@@ -6,12 +6,18 @@
         Pies pies = new Pies("Oddy");
         Kot kot = new Kot("Marik");
         Waz waz = new Waz("Nagini");
+        Piekarz piekarz = new Piekarz();
+        //Pracownik pracownik = new Pracownik(); Błąd kompilacji — klasa abstrakcyjna!
+        A a = new A();
+        B b = new B();
+        C c = new C();
 
-   
+
         powiedz_cos(zwierze);
         powiedz_cos(pies);
         powiedz_cos(kot);
         powiedz_cos(waz);
+        piekarz.Pracuj();
 }
     static void powiedz_cos(Zwierze zwierze)
     {
@@ -63,5 +69,37 @@ class Waz: Zwierze
     public override void daj_glos()
     {
         Console.WriteLine($"{nazwa} robi ssssssss!");
+    }
+}
+abstract class Pracownik
+{
+    public abstract void Pracuj();
+}
+class Piekarz : Pracownik
+{
+    public override void Pracuj()
+    {
+        Console.WriteLine("Trwa pieczenie...");
+    }
+}
+class A
+{
+    public A()
+    {
+        Console.WriteLine("To jest konstruktor A");
+    }
+}
+class B : A
+{
+    public B() : base()
+    {
+        Console.WriteLine("To jest konstruktor B");
+    }
+}
+class C : B
+{
+    public C() : base()  
+    {
+        Console.WriteLine("To jest konstruktor C");
     }
 }
